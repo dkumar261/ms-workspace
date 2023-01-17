@@ -1,0 +1,3 @@
+*.classpath
+/discovery-server/*.gitignore
+/discovery-server/.settings
