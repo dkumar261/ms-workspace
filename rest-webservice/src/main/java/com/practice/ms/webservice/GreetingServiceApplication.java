@@ -2,11 +2,13 @@ package com.practice.ms.webservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-public class RestWebserviceApplication {
+@EnableEurekaClient()
+public class GreetingServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestWebserviceApplication.class, args);
+		SpringApplication.run(GreetingServiceApplication.class, args);
 	}
 }

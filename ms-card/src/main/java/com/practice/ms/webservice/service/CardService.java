@@ -1,6 +1,5 @@
 package com.practice.ms.webservice.service;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +26,7 @@ public class CardService {
 
 	public Card getGreetings(Integer id) {
 
-		ResponseEntity<Greeting> responseEntity = restTemplate.getForEntity("http://localhost:8081/greeting/" + id,
+		ResponseEntity<Greeting> responseEntity = restTemplate.getForEntity("http://ms-greeting/greeting/" + id,
 				Greeting.class);
 		Greeting greeting = responseEntity.getBody();
 
