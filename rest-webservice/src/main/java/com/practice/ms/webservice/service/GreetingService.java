@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.practice.ms.webservice.domain.Greeting;
+import com.practice.ms.webservice.exception.GreetingNotFoundException;
 
 @Service
 public class GreetingService {
@@ -19,6 +20,10 @@ public class GreetingService {
 	}
 
 	public Greeting getGreetings(Integer id) {
-		return greetings.get(id);
+		Greeting greeting = greetings.get(id);
+		if(greeting == null) {
+			throw new GreetingNotFoundException("Greeting Not Found = " + id);
+		}
+		return  greeting;
 	}
 }
