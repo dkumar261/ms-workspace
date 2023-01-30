@@ -12,6 +12,11 @@ spring:
           uri: lb://MS-CARD
           predicates:
             - Path=/card/** 
+            
+        - id: MS-GREETING
+          uri: lb://MS-GREETING
+          predicates:
+            - Path=/greeting/**
              
   
 eureka:
