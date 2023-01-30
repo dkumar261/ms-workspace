@@ -5,7 +5,18 @@ spring:
   application:
     name: api-gateway
     
+  cloud:
+    gateway:
+      routes:
+        - id: MS-CARD
+          uri: lb://MS-CARD
+          predicates:
+            - Path=/card/** 
+             
+  
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     fetch-registry: true
     register-with-eureka: true
