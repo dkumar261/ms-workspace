@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.practice.ms.webservice.domain.Greeting;
 import com.practice.ms.webservice.service.GreetingService;
-
+/**
+ * 
+ * @author Dinesh Kumar
+ *
+ */
 @RestController
 public class GreetingController {
 
