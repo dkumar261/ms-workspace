@@ -8,10 +8,20 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: MS-GREETING
+          uri: lb://MS-GREETING
+          predicates:
+            - Path=/ws/v1/greeting/**
+            
         - id: MS-CARD
           uri: lb://MS-CARD
           predicates:
-            - Path=/card/** 
+            - Path=/ws/v1/card/** 
+
+        - id: SECURITY-SERVICE
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/auth/**
              
   
 eureka:
