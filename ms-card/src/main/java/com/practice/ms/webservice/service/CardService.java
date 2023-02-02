@@ -26,7 +26,7 @@ public class CardService {
 
 	public Card getGreetings(Integer id) {
 
-		ResponseEntity<Greeting> responseEntity = restTemplate.getForEntity("http://ms-greeting/greeting/" + id,
+		ResponseEntity<Greeting> responseEntity = restTemplate.getForEntity("http://ms-greeting/ws/v1/greeting/" + id,
 				Greeting.class);
 		Greeting greeting = responseEntity.getBody();
 
