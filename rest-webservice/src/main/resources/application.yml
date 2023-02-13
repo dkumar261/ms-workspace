@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  
+management.health.circuitbreakers.enabled: true
+management.health.ratelimiters.enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+  endpoint:
+    health:
+      show-details: always      
+spring:
+  application:
+    name: ms-greeting
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=ms-service
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
