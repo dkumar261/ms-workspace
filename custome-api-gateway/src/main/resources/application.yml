@@ -11,7 +11,7 @@ spring:
         - id: MS-GREETING
           uri: lb://MS-GREETING
           predicates:
-            - Path=/ws/v1/greeting/**
+            - Path=/ws/v1/item/**
             
         - id: MS-CARD
           uri: lb://MS-CARD
@@ -22,7 +22,6 @@ spring:
           uri: lb://SECURITY-SERVICE
           predicates:
             - Path=/auth/**
-             
   
 eureka:
   instance:
