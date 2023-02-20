@@ -16,6 +16,6 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(productServiceInterceptor);
+		//registry.addInterceptor(productServiceInterceptor);
 	}
 }
