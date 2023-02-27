@@ -1,24 +1,40 @@
 package com.practice.ms.webservice.service;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.practice.ms.webservice.domain.Greeting;
+import com.practice.ms.webservice.model.GreetingModel;
+import com.practice.ms.webservice.repository.GreetingRepository;
 
 @Service
 public class GreetingService {
 
-	Map<Integer, Greeting> greetings = new HashMap<>();
-	{
-		greetings.put(1, new Greeting("Happy Diwali !!", new Date(), "hm"));
-		greetings.put(2, new Greeting("Happy New Year !!", new Date(), "ar"));
-		greetings.put(3, new Greeting("Happy Holi !!", new Date(), "gr"));
+	@Autowired
+	private GreetingRepository greetingRepository;
+
+	public GreetingModel getGreetings(Integer id, Integer typeId) {
+		Optional<Greeting> Optionalgreeting = greetingRepository.findGreetingByIdAndType(id, typeId);
+		GreetingModel greetingModel = new GreetingModel();
+
+		if (Optionalgreeting.isPresent()) {
+			Greeting greeting = Optionalgreeting.get();
+			greetingModel.setCreateDate(greeting.getCreateDate());
+			greetingModel.setMessage(greeting.getMessage());
+			greetingModel.setId(greeting.getId());
+			greetingModel.setBrand(greeting.getBrand());
+			greetingModel.setType("CARD");
+		}
+		return greetingModel;
 	}
 
-	public Greeting getGreetings(Integer id) {
-		return greetings.get(id);
+	public Greeting save(Greeting greeting) {
+		greeting.setCreateDate(new Date());
+		Greeting savedGreeting = greetingRepository.save(greeting);
+		return savedGreeting;
+
 	}
 }
