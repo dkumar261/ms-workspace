@@ -18,10 +18,10 @@ spring:
           predicates:
             - Path=/ws/v1/card/** 
 
-        - id: SECURITY-SERVICE
-          uri: lb://SECURITY-SERVICE
+        - id: SX
+          uri: lb://SX
           predicates:
-            - Path=/auth/**
+            - Path=/ws/v1/oauth/** ,/ws/v1/home
   
 eureka:
   instance:
