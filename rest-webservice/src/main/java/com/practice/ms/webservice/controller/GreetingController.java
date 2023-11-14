@@ -36,5 +36,9 @@ public class GreetingController {
 		Greeting savedGreeting = greetingService.save(greeting);
 		return savedGreeting;
 	}
-
+	
+	@GetMapping(value = "/item/call")
+	public String users() {
+		return "This is Greeting !!";
+	}
 }
