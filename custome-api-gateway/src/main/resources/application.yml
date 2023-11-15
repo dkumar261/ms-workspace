@@ -21,7 +21,7 @@ spring:
         - id: SX
           uri: lb://SX
           predicates:
-            - Path=/ws/v1/oauth/** ,/ws/v1/home
+            - Path=/ws/v1/oauth/** ,/ws/v1/**
   
 eureka:
   instance:
