@@ -1,10 +1,13 @@
 package com.practice.ms.webservice.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,4 +40,8 @@ public class GreetingController {
 		return savedGreeting;
 	}
 
+	@GetMapping(value = "/item/call")
+	public String users(@Valid @RequestHeader("u-name") String name) {
+		return "This is Greeting !!";
+	}
 }

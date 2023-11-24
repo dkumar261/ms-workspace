@@ -12,16 +12,22 @@ spring:
           uri: lb://MS-GREETING
           predicates:
             - Path=/ws/v1/item/**
-            
+          filters:
+          - PreGatewayFilter
+                      
         - id: MS-CARD
           uri: lb://MS-CARD
           predicates:
             - Path=/ws/v1/card/** 
+          filters:
+          - PreGatewayFilter            
 
-        - id: SECURITY-SERVICE
-          uri: lb://SECURITY-SERVICE
+        - id: SX
+          uri: lb://SX
           predicates:
-            - Path=/auth/**
+            - Path=/ws/v1/oauth/** ,/ws/v1/**
+#          filters:
+#          - PreGatewayFilter
   
 eureka:
   instance:
