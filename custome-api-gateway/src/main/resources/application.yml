@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8001
 
 spring:
   application:
@@ -22,8 +22,8 @@ spring:
           filters:
           - PreGatewayFilter            
 
-        - id: SX
-          uri: lb://SX
+        - id: USER-SETTING
+          uri: lb://USER-SETTING
           predicates:
             - Path=/ws/v1/oauth/** ,/ws/v1/**
 #          filters:
