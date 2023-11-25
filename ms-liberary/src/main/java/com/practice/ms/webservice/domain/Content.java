@@ -1,4 +1,6 @@
-package com.practice.ms.webservice.controller;
+package com.practice.ms.webservice.domain;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,18 +17,15 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 
 @Entity
-@Table(name = "USER_LOGIN")
-public class User  {
+@Table(name = "CONTENT")
+public class Content {
 
-	private static final long serialVersionUID = -2819365758768084173L;
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String name;
-	private String password;
-
+	private LocalDateTime createAt;
+	private ContentType type;
 }

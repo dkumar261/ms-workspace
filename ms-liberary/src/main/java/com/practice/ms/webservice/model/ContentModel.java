@@ -1,4 +1,8 @@
-package com.practice.ms.webservice.controller;
+package com.practice.ms.webservice.model;
+
+import java.time.LocalDateTime;
+
+import com.practice.ms.webservice.domain.ContentType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,9 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PlayerModel {
+public class ContentModel {
 
 	private String name;
-	private String country;
-	private String hand;
+	private LocalDateTime createAt;
+	private ContentType type;
 }
