@@ -8,24 +8,24 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: MS-GREETING
-          uri: lb://MS-GREETING
+        - id: MS-LIBRARY
+          uri: lb://MS-LIBRARY
           predicates:
-            - Path=/ws/v1/item/**
+            - Path=/ws/liberary/**
           filters:
           - PreGatewayFilter
                       
         - id: MS-CARD
           uri: lb://MS-CARD
           predicates:
-            - Path=/ws/v1/card/** 
+            - Path=/ws/card/** 
           filters:
           - PreGatewayFilter            
 
         - id: USER-SETTING
           uri: lb://USER-SETTING
           predicates:
-            - Path=/ws/v1/oauth/** ,/ws/v1/**
+            - Path=/ws/oauth/** ,/ws/v1/**
 #          filters:
 #          - PreGatewayFilter
   
