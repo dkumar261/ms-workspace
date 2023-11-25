@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.practice.ms.webservice</groupId>
-	<artifactId>ms-greeting</artifactId>
+	<artifactId>ms-liberary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rest-webservice</name>
+	<name>ms-liberary</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>14</java.version>
