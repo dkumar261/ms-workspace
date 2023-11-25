@@ -1,5 +1,7 @@
 package com.user.setting.model;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,4 +27,11 @@ public class UserModel {
 	private String name;
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
+	private String confirmedpassword;
+	
+	private String emial;
+	private Long mobile;
+	
+	private LocalDateTime created;
+	
 }

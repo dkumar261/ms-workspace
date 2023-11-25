@@ -1,5 +1,6 @@
 package com.user.setting.domain;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -34,6 +35,11 @@ public class User implements UserDetails {
 	private Integer id;
 	private String name;
 	private String password;
+	
+	private String emial;
+	private Long mobile;
+	
+	private LocalDateTime created;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

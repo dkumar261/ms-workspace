@@ -1,7 +1,6 @@
 package com.user.setting.controller;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +24,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(ApplicationConstants.API_URL_OAUTH)
 public class UserAuthenticationController {
 
-
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -34,10 +32,6 @@ public class UserAuthenticationController {
 
 	@Autowired
 	private UserService userService;
-
-	public List<UserModel> users() {
-		return userService.getUsers();
-	}
 
 	@PostMapping(ApplicationConstants.API_URL_TOKEN)
 	public JwtResponse getUser(@RequestBody UserModel userModel) {
@@ -56,9 +50,8 @@ public class UserAuthenticationController {
 		return jwtResponse;
 	}
 
-	@PostMapping("/create")
+	@PostMapping("/register")
 	public UserModel addUser(@RequestBody UserModel userModel) {
 		return userService.createUser(userModel);
-
 	}
 }
