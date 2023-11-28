@@ -27,11 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().cors().disable().authorizeRequests()
-				.antMatchers(ApplicationConstants.API_URL_OAUTH + "/**").permitAll().anyRequest().authenticated().and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.antMatchers(ApplicationConstants.API_URL_OAUTH + "/**").permitAll()
+				.antMatchers("/ws/liberary/content").hasAnyAuthority("ADMIN").anyRequest().authenticated().and()
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(daoAuthenticationProvider());
 
-		//http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		// http.addFilterBefore(jwtRequestFilter,
+		// UsernamePasswordAuthenticationFilter.class);
 	}
 
 //	@Override
@@ -39,13 +42,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		auth.userDetailsService(userServiceToken).passwordEncoder(passwordEncoder());
 //	}
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
+	@Bean
+	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-    @Bean
-    DaoAuthenticationProvider daoAuthenticationProvider() {
+	@Bean
+	DaoAuthenticationProvider daoAuthenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setUserDetailsService(userServiceToken);
 		provider.setPasswordEncoder(passwordEncoder());
