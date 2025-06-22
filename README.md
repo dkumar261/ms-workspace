@@ -1,5 +1,6 @@
 # ms-workspace
 
+# To connect AWS EC2
 ssh -i MyKey.pem ec2-user@ec2-54-144-85-197.compute-1.amazonaws.com
 
 ssh -i MyKey.pem ubuntu@ec2-18-208-219-82.compute-1.amazonaws.com
